@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presets xmlns="http://josm.openstreetmap.de/tagging-preset-1.0"
+    author="Katycat5e"
+    version="0.1"
+    shortdescription="US Historic Places"
+    description="National and state historic site tagging for JOSM">
+
+    <group name="US Historic Sites" icon="presets/sightseeing/museum.svg" >
+        <item name="National Register of Historic Places" type="node,closedway,multipolygon" icon="presets/sightseeing/museum.svg" >
+            <key key="heritage" value="2" />
+            <key key="heritage:operator" value="nrhp" />
+
+            <text key="name" text="Name" />
+            <combo key="historic" match="key" default="building" editable="true" >
+                <list_entry value="building" />
+                <list_entry value="archaeological_site" />
+                <list_entry value="church" />
+                <list_entry value="district" />
+                <list_entry value="farm" />
+                <list_entry value="fort" />
+                <list_entry value="house" />
+                <list_entry value="lime_kiln" />
+                <list_entry value="memorial" />
+                <list_entry value="monument" />
+                <list_entry value="mosque" />
+                <list_entry value="road" />
+                <list_entry value="ruins" />
+            </combo>
+
+            <text key="ref:nrhp" text="NRHP Reference ID" />
+            <text key="heritage:ref" text="Heritage ID" value_template="{ref:nrhp}"  />
+            <check key="nrhp:nhl" text="National Historic Landmark" disable_off="true" />
+            
+            <text key="start_date" text="Construction Date" />
+            <text key="nrhp:inscription_date" text="NRHP Induction Date" />
+            <multiselect key="nrhp:criteria" text="Induction Criteria" delimiter="," rows="4" >
+                <list_entry value="(A)" display_value="(A) Historic Event" short_description="Associated with an event that contributed to American history" />
+                <list_entry value="(B)" display_value="(B) Notable Person" short_description="Associated with a significant historic figure" />
+                <list_entry value="(C)" display_value="(C) Architecture/Engineering" short_description="Embodies characteristics of the period or architectural/artistic movement" />
+                <list_entry value="(D)" display_value="(D) Information Potential" short_description="Location is likely to yield or has yielded historical information" />
+            </multiselect>
+            <label text="Include only official NRHP criteria from parks service documentation" icon="data/warning.svg" />
+
+            <optional text="Documentation (Optional):">
+                <text key="heritage:website" text="NPGallery Digital Asset Link" />
+                
+                <text key="wikipedia" text="Wikipedia Page" />
+                <text key="wikidata" text="Wikidata ID" />
+            </optional>
+
+            <optional text="Architecture (Optional):">
+                <text key="architect" text="Architect" />
+                <combo key="building:architecture" text="Architectural Style" values_sort="true" >
+                    <list_entry value="colonial" display_value="Colonial" />
+                    <list_entry value="georgian" display_value="Georgian" />
+                    <list_entry value="early_republic" display_value="Early Republic" />
+                    <list_entry value="federal" display_value="Federal" />
+                    <list_entry value="mid_19th_century_revival" display_value="Mid 19th Century Revival" />
+                    <list_entry value="greek_revival" display_value="Greek Revival" />
+                    <list_entry value="gothic_revival" display_value="Gothic Revival" />
+                    <list_entry value="italian_villa" display_value="Italian Villa" />
+                    <list_entry value="exotic_revival" display_value="Exotic Revival" />
+                    <list_entry value="late_victorian" display_value="Late Victorian" />
+                    <list_entry value="gothic" display_value="Gothic" />
+                    <list_entry value="italianate" display_value="Italianate" />
+                    <list_entry value="second_empire" display_value="Second Empire" />
+                    <list_entry value="queen_anne" display_value="Queen Anne" />
+                    <list_entry value="shingle_style" display_value="Shingle Style" />
+                    <list_entry value="romanesque" display_value="Romanesque" />
+                    <list_entry value="renaissance" display_value="Renaissance" />
+                    <list_entry value="octagon_mode" display_value="Octagon Mode" />
+                    <list_entry value="late_19th_and_20th_century_revivals" display_value="Late 19th and 20th Century Revivals" />
+                    <list_entry value="colonial_revival" display_value="Colonial Revival" />
+                    <list_entry value="classical_revival" display_value="Classical Revival" />
+                    <list_entry value="tudor_revival" display_value="Tudor Revival" />
+                    <list_entry value="late_gothic_revival" display_value="Late gothic Revival" />
+                    <list_entry value="spanish_revival" display_value="Spanish Revival" />
+                    <list_entry value="beaux_arts" display_value="Beaux Arts" />
+                    <list_entry value="pueblo" display_value="Pueblo" />
+                    <list_entry value="late_19th_and_early_20th_century_american_movements" display_value="Late 19th and Early 20th Century American Movements" />
+                    <list_entry value="prairie_school" display_value="Prairie School" />
+                    <list_entry value="early_commercial" display_value="Early Commercial" />
+                    <list_entry value="chicago" display_value="Chicago" />
+                    <list_entry value="skyscraper" display_value="Skyscraper" />
+                    <list_entry value="craftsman" display_value="Craftsman" />
+                    <list_entry value="modern_movement" display_value="Modern Movement" />
+                    <list_entry value="moderne" display_value="Moderne" />
+                    <list_entry value="international_style" display_value="International Style" />
+                    <list_entry value="art_deco" display_value="Art Deco" />
+                </combo>
+            </optional>
+
+            <link wiki="National_Register_of_Historic_Places" text="NRHP Tagging (OSM Wiki)" />
+            <link href="https://npgallery.nps.gov/nrhp" text="NPGallery Database" />
+
+            <preset_link preset_name="Building" />
+            <preset_link preset_name="Address" />
+        </item>
+
+        <item name="PA Historical Marker" type="node" icon="presets/misc/information/board.svg">
+            <key key="heritage" value="4" />
+            <key key="heritage:operator" value="phmc" />
+            <key key="operator" value="phmc" match="none" />
+
+            <key key="tourism" value="information" />
+            <key key="information" value="board" />
+            <key key="board_type" value="history" />
+
+            <text key="name" text="Name" />
+            <text key="start_date" text="Dedication Date" />
+
+            <link href="https://share.phmc.pa.gov/markers/" text="PHMC Marker Search" />
+        </item>
+    </group>
+</presets>
