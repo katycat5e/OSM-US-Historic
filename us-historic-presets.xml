@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <presets xmlns="http://josm.openstreetmap.de/tagging-preset-1.0"
     author="Katycat5e"
-    version="0.1"
+    version="0.2"
     shortdescription="US Historic Places"
     description="National and state historic site tagging for JOSM">
+
+    <chunk id="bldg_edit_also">
+        <preset_link preset_name="Building" />
+        <preset_link preset_name="Address" />
+    </chunk>
+
+    <chunk id="combo_historic">
+        <combo key="historic" text="Historic Type" match="none" default="building" editable="true" >
+            <list_entry value="building" />
+            <list_entry value="archaeological_site" />
+            <list_entry value="church" />
+            <list_entry value="district" />
+            <list_entry value="farm" />
+            <list_entry value="fort" />
+            <list_entry value="house" />
+            <list_entry value="lime_kiln" />
+            <list_entry value="memorial" />
+            <list_entry value="monument" />
+            <list_entry value="mosque" />
+            <list_entry value="road" />
+            <list_entry value="ruins" />
+        </combo>
+    </chunk>
 
     <group name="US Historic Sites" icon="presets/sightseeing/museum.svg" >
         <item name="National Register of Historic Places" type="node,closedway,multipolygon" icon="presets/sightseeing/museum.svg" >
@@ -11,21 +34,7 @@
             <key key="heritage:operator" value="nrhp" />
 
             <text key="name" text="Name" />
-            <combo key="historic" match="key" default="building" editable="true" >
-                <list_entry value="building" />
-                <list_entry value="archaeological_site" />
-                <list_entry value="church" />
-                <list_entry value="district" />
-                <list_entry value="farm" />
-                <list_entry value="fort" />
-                <list_entry value="house" />
-                <list_entry value="lime_kiln" />
-                <list_entry value="memorial" />
-                <list_entry value="monument" />
-                <list_entry value="mosque" />
-                <list_entry value="road" />
-                <list_entry value="ruins" />
-            </combo>
+            <reference ref="combo_historic" />
 
             <text key="ref:nrhp" text="NRHP Reference ID" />
             <text key="heritage:ref" text="Heritage ID" value_template="{ref:nrhp}"  />
@@ -93,8 +102,63 @@
             <link wiki="National_Register_of_Historic_Places" text="NRHP Tagging (OSM Wiki)" />
             <link href="https://npgallery.nps.gov/nrhp" text="NPGallery Database" />
 
-            <preset_link preset_name="Building" />
-            <preset_link preset_name="Address" />
+            <reference ref="bldg_edit_also" />
+        </item>
+
+        <group name="CA Historical Resources">
+            <item name="CA Historical Landmark" type="node,closedway,multipolygon" icon="presets/sightseeing/museum.svg">
+                <key key="heritage" value="4" match="keyvalue" />
+                <key key="heritage:operator" value="chisl" />
+
+                <text key="name" text="Name" />
+                <text key="ref:US-CA:chisl" text="Plaque Number" />
+                <reference ref="combo_historic" />
+
+                <link href="https://ohp.parks.ca.gov/ListedResources/" text="CA Historical Resource Listings" />
+                <preset_link preset_name="National Register of Historic Places" />
+                <reference ref="bldg_edit_also" />
+            </item>
+
+            <item name="CA Point of Historical Interest" type="node,closedway,multipolygon" icon="presets/sightseeing/museum.svg">
+                <key key="heritage" value="5" />
+                <key key="heritage:operator" value="cphi" />
+
+                <text key="name" text="Name" />
+                <text key="ref:US-CA:cphi" text="Plaque Number" />
+                <reference ref="combo_historic" />
+
+                <label text="For local/county points of interest only - state level resources use CA Historical Landmark preset." icon="data/warning.svg" />
+                <link href="https://ohp.parks.ca.gov/ListedResources/" text="CA Historical Resource Listings" />
+                <reference ref="bldg_edit_also" />
+            </item>
+        </group>
+
+        <item name="NYC Landmarks Preservation Commission" type="node,closedway,multipolygon" icon="presets/sightseeing/museum.svg">
+            <key key="heritage" value="5" />
+            <key key="heritage:operator" value="lpc" />
+            <key key="heritage:website" value="https://www1.nyc.gov/site/lpc/index.page" />
+
+            <text key="name" text="Name" />
+
+            <reference ref="combo_historic" />
+            <text key="ref:US-NY:lpc" text="Designation ID" />
+            <text key="lpc:inscription_date" text="Designation Date" />
+
+            <link href="https://www.nyc.gov/site/lpc/index.page" text="LPC Homepage" />
+            <link wiki="New_York_City#History" />
+        </item>
+
+        <item name="Ohio Historic Bridge" type="way,closedway,multipolygon" icon="presets/transport/bridge/bridge.svg">
+            <key key="heritage" value="4" />
+            <key key="heritage:operator" value="odot" />
+            <key key="historic" value="bridge" />
+
+            <text key="name" text="Name" />
+            <text key="start_date" text="Construction Date" />
+            
+            <link href="https://www.transportation.ohio.gov/programs/historic-bridges/historic-bridges" text="Historic Bridges Program"/>
+            <preset_link preset_name="Bridge" />
+            <preset_link preset_name="Bridge Outline" />
         </item>
 
         <item name="PA Historical Marker" type="node" icon="presets/misc/information/board.svg">
@@ -111,5 +175,52 @@
 
             <link href="https://share.phmc.pa.gov/markers/" text="PHMC Marker Search" />
         </item>
+
+        <group name="TX Historical Commission">
+            <item name="TX Historical Marker" type="node" icon="presets/misc/information/board.svg">
+                <key key="heritage" value="4" />
+                <key key="heritage:operator" value="thc" />
+                <key key="thc:designation" value="Historical Marker" />
+
+                <key key="tourism" value="information" />
+                <key key="information" value="board" />
+                <key key="board_type" value="history" />
+    
+                <text key="name" text="Name" />
+                <text key="ref:US-TX:thc" text="Marker Number" />
+                <text key="thc:inscription_date" text="Marker Date" />
+                
+                <link href="https://atlas.thc.texas.gov/" text="Texas Historic Sites Atlas" />
+            </item>
+
+            <item name="TX Recorded Historic Landmark" type="node,closedway,multipolygon" icon="presets/sightseeing/museum.svg">
+                <key key="heritage" value="4" />
+                <key key="heritage:operator" value="thc" />
+                <key key="thc:designation" value="Recorded Texas Historic Landmark" />
+
+                <text key="name" text="Name" />
+                <reference ref="combo_historic" />
+                <text key="ref:US-TX:thc" text="Marker Number" />
+                <text key="start_date" text="Construction Date" />
+                <text key="thc:inscription_date" text="Designation Date" />
+
+                <reference ref="bldg_edit_also" />
+                <link href="https://atlas.thc.texas.gov/" text="Texas Historic Sites Atlas" />
+            </item>
+
+            <item name="Historic Texas Cemetery" type="closedway,multipolygon" icon="presets/landuse/cemetery.svg">
+                <key key="heritage" value="4" />
+                <key key="heritage:operator" value="thc" />
+                <key key="thc:designation" value="Historic Texas Cemetery" />
+
+                <text key="name" text="Name" />
+                <text key="ref:US-TX:thc" text="Cemetery ID" />
+                <text key="start_date" text="Opening Date" />
+                <text key="thc:inscription_date" text="Designation Date" />
+
+                <preset_link preset_name="Cemetery" />
+                <link href="https://atlas.thc.texas.gov/" text="Texas Historic Sites Atlas" />
+            </item>
+        </group>
     </group>
 </presets>
