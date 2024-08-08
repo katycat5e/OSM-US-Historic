@@ -181,14 +181,23 @@
                 <key key="heritage" value="4" />
                 <key key="heritage:operator" value="thc" />
                 <key key="thc:designation" value="Historical Marker" />
+                
+                <key key="operator" value="Texas Historical Commission" match="none" />
+                <key key="operator:wikidata" value="Q2397965" match="none" />
 
-                <key key="tourism" value="information" />
-                <key key="information" value="board" />
-                <key key="board_type" value="history" />
+                <key key="historic" value="memorial" />
+                <key key="memorial" value="plaque" />
     
                 <text key="name" text="Name" />
                 <text key="ref:US-TX:thc" text="Marker Number" />
-                <text key="thc:inscription_date" text="Marker Date" />
+                <text key="start_date" text="Marker Date" />
+
+                <optional text="Other Databases:">
+                    <text key="ref:hmdb" text="Historic Marker DB ID" />
+                    <text key="memorial:website" text="HMDB Link" />
+
+                    <text key="openplaques:id" text="OpenPlaques ID" />
+                </optional>
                 
                 <link href="https://atlas.thc.texas.gov/" text="Texas Historic Sites Atlas" />
             </item>
@@ -203,6 +212,8 @@
                 <text key="ref:US-TX:thc" text="Marker Number" />
                 <text key="start_date" text="Construction Date" />
                 <text key="thc:inscription_date" text="Designation Date" />
+
+                <text key="heritage:website" text="Atlas Link" />
 
                 <reference ref="bldg_edit_also" />
                 <link href="https://atlas.thc.texas.gov/" text="Texas Historic Sites Atlas" />
