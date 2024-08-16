@@ -29,7 +29,7 @@
     </chunk>
 
     <group name="US Historic Sites" icon="presets/sightseeing/museum.svg" >
-        <item name="National Register of Historic Places" type="node,closedway,multipolygon" icon="presets/sightseeing/museum.svg" >
+        <item name="National Register of Historic Places" type="node,closedway,multipolygon,relation" icon="presets/sightseeing/museum.svg" >
             <key key="heritage" value="2" />
             <key key="heritage:operator" value="nrhp" />
 
@@ -165,13 +165,20 @@
             <key key="heritage" value="4" />
             <key key="heritage:operator" value="phmc" />
             <key key="operator" value="phmc" match="none" />
+            <key key="operator:wikidata" value="Q3374782" match="none" />
 
-            <key key="tourism" value="information" />
-            <key key="information" value="board" />
-            <key key="board_type" value="history" />
+            <key key="historic" value="memorial" />
+            <key key="memorial" value="plaque" />
 
             <text key="name" text="Name" />
             <text key="start_date" text="Dedication Date" />
+
+            <optional text="Other Databases:">
+                <text key="ref:hmdb" text="Historic Marker DB ID" />
+                <text key="memorial:website" text="HMDB Link" />
+
+                <text key="openplaques:id" text="OpenPlaques ID" />
+            </optional>
 
             <link href="https://share.phmc.pa.gov/markers/" text="PHMC Marker Search" />
         </item>
